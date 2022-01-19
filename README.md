@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+* Hi my name is Noufil. I'm excited about this project because I can learn how how to collaborate with team members in a professional environment.
 	
 ## Technologies
 Technologies used for this project:
