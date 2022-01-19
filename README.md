@@ -6,7 +6,10 @@
 
 ## General Info
 This browser based web application to ...
+HEAD
 * Hi my name is Noufil. I'm excited about this project because I can learn how how to collaborate with team members in a professional environment.
+* Hi my name is Xavier. I'm excited about this project because...
+7c29eab (added one line intro to README for Noufil)
 	
 ## Technologies
 Technologies used for this project:
