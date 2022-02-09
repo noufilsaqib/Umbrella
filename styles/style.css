@@ -1,0 +1,19 @@
+.jumbotron {
+    background-image: url("../images/hero.jpg");
+    background-size: cover;
+    color: white;
+    height: 80vh;
+}
+
+.jumbotron > .overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 132, 230, 0.85);
+    z-index: 1;
+}
+
+.jumbotron > .container {
+    position: relative;
+    z-index: 2;
+}
