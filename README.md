@@ -30,7 +30,7 @@ Content of the project folder:
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
-├── images                   # Folder for images
+├── assets                   # Folder for images
     /blah.jpg                # 
 ├── scripts                  # Folder for scripts
     /blah.js                 # 
