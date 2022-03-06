@@ -1,9 +1,8 @@
-//---------------------------------------------------
-// This function loads the parts of your skeleton 
-// (navbar, footer, and other things) into html doc. 
-//---------------------------------------------------
 function loadSkeleton(){
-    console.log($('#navbarPlaceholder').load('./text/nav.html'));
-    console.log($('#footerPlaceholder').load('./text/footer.html'));
+    $('#navTemplate').load('/text/nav.html', function () {
+        $('.navbar .nav-item .nav-link').each(function () {
+            $(this).toggleClass('active', this.getAttribute('href') === location.pathname);
+        })
+    });
 }
 loadSkeleton();  //invoke the function
