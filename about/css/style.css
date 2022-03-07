@@ -1,0 +1,148 @@
+/* Story Section */
+.um-landing-section {
+    height: 80vh;
+    background-color: rgba(68, 198, 176, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.um-h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    color:#125a4e;
+}
+
+.um-h1 span {
+    font-weight: 700;
+    font-style: italic;
+    color:#44c6b0;
+
+    display: inline-block;
+    position: relative;
+}
+
+.um-h1 span::after {
+    content: '';
+    position: absolute;
+    bottom: 12%;
+    left: 0;
+    height: .5rem;
+    width: 103%;
+    background: rgba(68, 198, 176, 0.25);
+    z-index: -1;
+}
+/* *** */
+
+/* Story Section */
+.um-story-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.um-story-section .um-h2 {
+    text-align: center;
+}
+
+.um-story-text {
+    width: 50%;
+}
+/* *** */
+
+/* Team Section */
+.um-team-section {
+    background-color: rgba(68, 198, 176, 0.1);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    display: flex;
+    align-items: center;
+}
+
+.um-h2 {
+    margin-bottom: 2.5rem;
+}
+
+.um-h2 span {
+    color: #44c6b0;
+    font-weight: 700 !important;
+}
+
+.um-team-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 7px 20px rgba(76, 80, 83, 0.2);
+}
+
+.um-team-card .card-body {
+    margin-left: 0.5rem;
+}
+
+.um-team-card .card-text {
+    color: #44c6b0;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.um-team-card img {
+    border-radius: 0 0 10px 10px;
+}
+
+.um-card-image-wrap {
+    overflow: hidden;
+    position: relative;
+    border-radius: 0 0 10px 10px;
+}
+
+.um-card-image-wrap img {
+  transition: transform .25s;
+  width: 100%;
+}
+
+.um-card-image-wrap:hover img {
+  transform: scale(1.2);
+}
+/* *** */
+
+/* How It Works Section */
+.um-how-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.um-how-section .um-h2 {
+    text-align: center;
+}
+
+.um-how-section .um-h3 {
+    color: #44c6b0;
+    text-align: center;
+}
+/* *** */
+
+/* Responsive */
+@media screen and (max-width: 991px) {
+    .um-h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 434px) {
+    .um-h1 {
+        font-size: 1.75rem;
+    }
+
+    .um-h1 span::after {
+        bottom: 5%;
+    }
+
+    .um-story-text {
+        width: 100%;
+    }
+
+    .um-how-section .um-h3 {
+        text-align: left;
+    }
+}
