@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -25,20 +25,37 @@
 
         <nav id="navTemplate"></nav>
 
-        <!-- ***Jumbotron*** -->
-        <div class="um-landing-section">
-            <div class="jumbotron d-flex align-items-center">
-                <div class="container">
-                    <h5 class="um-subtitle">WELCOME TO</h5>
-                    <h1 class="display-5 um-title">Umbrella</h1>
-                    <p class="um-btns">
-                        <a class="btn btn-lg um-btn-primary" href="/create-group/" role="button">Create a Group</a>
-                        <a class="btn btn-lg um-btn-secondary" href="/join-group/" role="button">Join a Group</a>
-                    </p>
-                    <a class="btn um-btn-text" href="#" role="button">How it works</a>
-                </div>
-            </div>
-        </div> <!-- Jumbotron End -->
+        <div class="um-create-section">
+            <div id="um-steps"></div>
+
+            <h2 class="um-h2 text-center"><span>Create Group</span></h2>
+
+            <section>
+                <p>Enter your group name <span>(required)</span></p>
+                <input type="text" placeholder="My Group ..." />
+            </section>
+
+            <section>
+                <p>Set your group radius <span>(required)</span></p>
+                <input type="number" placeholder="500 (in meters)" />
+            </section>
+
+            <section>
+                <p>Enter destination address <span>(required)</span></p>
+                <input type="number" placeholder="Latitude" />
+                <input type="number" placeholder="Longitude" />
+            </section>
+
+            <section>
+                <p>Invite others to the group</p>
+                <input class="text-center" type="text" value="jkLuY" readonly />
+            </section>
+
+            <a class="btn btn-lg um-btn-secondary" id="prev" href="#" role="button">&larr; Back</a>
+            <a class="btn btn-lg um-btn-primary" id="next" href="#" role="button">Next &rarr;</a>
+            <a class="btn btn-lg um-btn-primary" id="submit" href="#" role="button">Create My Group</a>
+
+        </div>
                
     </div>
 
@@ -47,7 +64,7 @@
         <div class="container pt-4 text-start um-footer-container">
             <div class="row">
                 <a href="/" class="mt-3 mb-2 footer-brand">
-                    <img class="logo-main" src="assets/logo/um-logo-primary-white.png" height="35px" alt="Logo of Pixelbyte">
+                    <img class="logo-main" src="/assets/logo/um-logo-primary-white.png" height="35px" alt="Logo of Pixelbyte">
                 </a>
             </div>
             <div class="row">

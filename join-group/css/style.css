@@ -1,0 +1,29 @@
+/* Join Section */
+.um-join-section {
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    text-align: center;
+}
+
+.um-join-section .um-h2 {
+    margin-top: 2rem;
+}
+
+section {
+    padding: 2rem;
+    max-width: fit-content;
+    margin: 2rem auto;
+}
+
+input {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+}
+  
+p {
+    font-weight: 500;
+}
+/* *** */
