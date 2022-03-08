@@ -202,6 +202,15 @@ body {
 
 
 /* Buttons */
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+input:focus, input:active {
+    outline-color: #44c6b0;
+}
+
 .um-btn-primary {
     background-color: #44c6b0;
     color: white !important;
