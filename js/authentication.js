@@ -12,17 +12,20 @@ var uiConfig = {
         db.collection("users")
           //define a document for a user with UID as a document ID
           .doc(user.uid).set({
-            groupID:(Math.floor(Math.random() * 10000) + 10000).toString().substring(1),//auto 4 digit ID
+            groupID:null,
             name: user.displayName,
             email: user.email,
             number: null,
-            userX:null,
-            userY:null,
-            partyID:null
-            
+            userLong:null,
+            userLat:null,
+            partyID:null,
+            owner:false,
+            userProx:null,
+            isSafe:true,
+                        
           }).then(function () {
             console.log("New user added to firestore");
-            window.location.assign("index.html","./create-group/index.html");
+            window.location.assign("index.html");
           })
           .catch(function (error) {
             console.log(error);

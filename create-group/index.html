@@ -38,7 +38,7 @@
 <body>
 
     <div class="wrapper">
-
+        <div id ="name-goes-here">...</div>
         <nav id="navTemplate"></nav>
 
         <div class="um-create-section">
@@ -58,18 +58,18 @@
 
             <section>
                 <p>Enter destination address <span>(required)</span></p>
-                <input type="number" placeholder="Latitude" id="meetingY" />
-                <input type="number" placeholder="Longitude" id="meetingX" />
+                <input type="number" placeholder="Latitude" id="meetLat" />
+                <input type="number" placeholder="Longitude" id="meetLong" />
             </section>
 
             <section>
                 <p>Invite others to the group</p>
-                <input class="text-center" type="text" readonly />
+                <input class="text-center" type="text" readonly id="shareCode"/>
             </section>
 
             <a class="btn btn-lg um-btn-secondary" id="prev" href="#" role="button">&larr; Back</a>
-            <a class="btn btn-lg um-btn-primary" id="next" href="#" role="button">Next &rarr;</a>
-            <a class="btn btn-lg um-btn-primary" id="submit" href="#" role="button">Create My Group</a>
+            <a class="btn btn-lg um-btn-primary" id="next" href="#" role="button" onclick="setter()">Next &rarr;</a>
+            <a class="btn btn-lg um-btn-primary" id="submit" href="#" role="button" onclick="submit()">Create My Group</a>
 
         </div>
 
@@ -108,9 +108,9 @@
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./js/index.js"></script>
-    <script src="../js/index.js"></script>
-    <script src="./js/backend.js"></script> <!-- link up with database js xp -->
+    <script src="/js/firebaseAPI_umbrellaBBY15.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="js/backend.js"></script> <!-- link up with database js xp -->
     <script src="/js/skeleton.js"></script>
     <script src="/js/global.js"></script>
     <script src="./js/script.js"></script>
