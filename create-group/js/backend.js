@@ -42,12 +42,13 @@ firebase.auth().onAuthStateChanged(user => {
 function submit() { //on click the database will create a new party collection
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-                db.collection("groups").doc(user.uid).set({
+                db.collection("groups").add({
                     groupID:(Math.floor(Math.random() * 100000) + 100000).toString().substring(1),//auto 5 digit ID
                     partyID: inputPartyID,
                     radius: inputRadius,
                     meetLong: inputMeetLong,
                     meetLat: inputMeetLat
+            
                 })
                 .then(() => {
                     console.log("Document successfully updated!");

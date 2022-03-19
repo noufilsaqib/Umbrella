@@ -4,7 +4,7 @@
     //this updates geolocation of user writes into database
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            db.collection("groups").doc(user.uid).update({
+            db.collection("users").doc(user.uid).update({
                //updates the geolocation
                userLong:coords.longitude,
                userLat:coords.latitude

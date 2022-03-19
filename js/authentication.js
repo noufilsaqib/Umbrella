@@ -9,7 +9,7 @@ var uiConfig = {
       // or whether we leave that to developer to handle.
       var user = authResult.user; //get the user object info
       if (authResult.additionalUserInfo.isNewUser) {
-        // create a collection with name "users"
+        // create a collection with name "group"
         db.collection("users")
           //define a document for a user with UID as a document ID
           .doc(user.uid).set({
