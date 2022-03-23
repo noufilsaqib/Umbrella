@@ -2,7 +2,6 @@ var currentUser
 function insertName(){
     // to check if the user is logged in:
      firebase.auth().onAuthStateChanged(user =>{
-         console.log(user.uid);
          if (user){
              console.log(user.uid); // let me to know who is the user that logged in to get the UID
             currentUser = db.collection("users").doc(user.uid); // will to to the firestore and go to the document of the user
@@ -17,6 +16,9 @@ function insertName(){
      })
     }
     insertName();
+
+
+
 
     
     
