@@ -3,6 +3,8 @@ let inputRadius;
 let inputMeetLong;
 let inputMeetLat;
 
+var idRandomizer = (Math.floor(Math.random() * 100000) + 100000).toString().substring(1) //auto 5 digit ID
+
 function setter() {
     if (document.getElementById("partyID").value != null) {
         inputPartyID = document.getElementById("partyID").value;
@@ -21,14 +23,13 @@ function setter() {
 
     }
     if (document.getElementById("shareCode").value.length == 0)
-        document.getElementById("shareCode").value = inputPartyID;
+        document.getElementById("shareCode").value = idRandomizer;
 }
 
 
 function submit() { //on click the database will create a new party collection
     firebase.auth().onAuthStateChanged(user => {
         if (user && inputPartyID != null) {
-            var idRandomizer = (Math.floor(Math.random() * 100000) + 100000).toString().substring(1) //auto 5 digit ID
             db.collection("groups").add({
                     groupID: idRandomizer,
                     partyID: inputPartyID,

@@ -36,6 +36,8 @@ function populateCardsDynamically() {
 }
 populateCardsDynamically();
 
+
+
 //Writes New user Lat/Long in db intervals
 setInterval(getLocation, 5000);//geolocation interval 5 secs
 //this updates geolocation of user writes into database
@@ -83,20 +85,5 @@ function showPosition(position) {
 // }
 // read();
 
-//MAKES Lat/Long values to address
-// function getReverseGeocodingData(lat, lng) {
-//     var latlng = new google.maps.LatLng(lat, lng);
-//     // This is making the Geocode request
-//     var geocoder = new google.maps.Geocoder();
-//     geocoder.geocode({ 'latLng': latlng },  (results, status) =>{
-//         if (status !== google.maps.GeocoderStatus.OK) {
-//             alert(status);
-//         }
-//         // This is checking to see if the Geoeode Status is OK before proceeding
-//         if (status == google.maps.GeocoderStatus.OK) {
-//             console.log(results);//place id/innerHTML here
-//             var address = (results[0].formatted_address);
-//         }
-//     });
-// }
+
 
