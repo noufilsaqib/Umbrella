@@ -1,11 +1,15 @@
-
+let inputPartyID;
 let inputRadius;
 let inputMeetLong;
 let inputMeetLat;
-
+let inputGroupName;
 var idRandomizer = (Math.floor(Math.random() * 100000) + 100000).toString().substring(1) //auto 5 digit ID
 
 function setter() {
+    if (document.getElementById("groupName").value != null) {
+        inputGroupName = document.getElementById("groupName").value;
+
+    }
     if (document.getElementById("radius").value != null) {
         inputRadius = document.getElementById("radius").value;
 
@@ -14,7 +18,7 @@ function setter() {
         inputMeetLong = document.getElementById("meetLong").value;
 
     }
-    if (document.getElementById("partyID").value != null) {
+    if (document.getElementById("meetLat").value != null) {
         inputMeetLat = document.getElementById("meetLat").value;
 
     }
@@ -28,6 +32,7 @@ function submit() { //on click the database will create a new party collection
         if (user) {
             db.collection("groups").add({
                     groupID: idRandomizer,
+                    groupName: inputGroupName,
                     radius: inputRadius,
                     meetLong: inputMeetLong,
                     meetLat: inputMeetLat
@@ -39,7 +44,7 @@ function submit() { //on click the database will create a new party collection
                         groupID: idRandomizer,
                         owner: true
                     })
-                    window.location = "../main/";
+                    // window.location = "../main/index.html";
                 })
             alert("Document successfully updated!");
         } else {
