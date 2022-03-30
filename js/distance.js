@@ -8,11 +8,18 @@ var curLat;
 var distanceToTheHost;
 var meet_long;
 var meet_lat
+// var options;
+
+options = {
+    enableHighAccuracy: true
+};
+
 
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
         geolocationID = navigator.geolocation.watchPosition(getDistanceToHost, error, options);
+
     } else {
         distance.innerHTML = "Geolocation is not supported by this browser.";
         userLat.innerHTML = "Geolocation is not supported by this browser.";
@@ -20,7 +27,7 @@ function getLocation() {
     }
 }
 
-//getLocation();
+getLocation();
 
 //Update to the database each 10 seccond
 
@@ -33,6 +40,7 @@ function showPosition(position) {
     userLat.value = curLat;
     userLong.value = curLong;
 }
+
 
 function insertLongAndLatMeet() {
     // to check if the user is logged in:
@@ -63,25 +71,11 @@ function insertLongAndLatMeet() {
         }
     })
 }
-// insertLongAndLatMeet();
+insertLongAndLatMeet();
 
 function setGlobalLatLong(lat, long) {
     meet_lat = lat;
     meet_long = long;
-}
-
-
-function getDistanceToHost(position) {
-    //Download meeting destination
-    var hostLatitude = parseInt(meet_lat);
-    var hostLongtitude = parseInt(meet_long);
-
-    console.log(hostLatitude, hostLongtitude);
-    console.log(position)
-    var dist = getDistanceInKm(position.coords.latitude, position.coords.longitude, hostLatitude, hostLongtitude);
-    distance.innerHTML = "Distance to Host: " + dist.toPrecision(3) + " km";
-    //upload to database
-    uploadToDataBase();
 }
 
 // calculate distance in km
@@ -111,14 +105,23 @@ function stopTracking() {
     }
 }
 
+function getDistanceToHost(position) {
+    //Download meeting destination
+    var hostLatitude = parseInt(meet_lat);
+    var hostLongtitude = parseInt(meet_long);
+
+    console.log(hostLatitude, hostLongtitude);
+    console.log(position)
+    var dist = getDistanceInKm(position.coords.latitude, position.coords.longitude, hostLatitude, hostLongtitude);
+    distance.innerHTML = "Distance to Host: " + dist.toPrecision(3) + " km";
+    //upload to database
+    uploadToDataBase();
+}
+//getDistanceToHost();
+
 function error(err) {
     console.warn('ERROR(' + err.code + '): ' + err.message);
 }
-
-options = {
-    enableHighAccuracy: true
-};
-
 
 function uploadToDataBase() {
     longitude = document.getElementById('userLong').value;
@@ -143,6 +146,9 @@ function uploadToDataBase() {
         }
     })
 }
+uploadToDataBase();
+
+
 //MAKES Lat/Long values to address
 // function getReverseGeocodingData(lat, lng) {
 //     var latlng = new google.maps.LatLng(lat, lng);
