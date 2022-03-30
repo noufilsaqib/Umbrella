@@ -19,9 +19,8 @@ var uiConfig = {
             number: null,
             userLong: null,
             userLat: null,
-            partyID: null,
             owner: false,
-            userProx: null,
+            distHost: null,
             isSafe: true,
 
           }).then(function () {

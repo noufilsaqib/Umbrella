@@ -12,21 +12,19 @@ function join() {
 
       //matches text field to see if there is a matching group with group ID 
       if (inputGroupID) {
-        let query = groupsRef.where("groupID", "==", inputGroupID);//queries if there is a matching value. returns values
-        query.get()//gets the values of matching keys and gets value
-          .then((querySnapshot) => {//creates the snapshot 
-            if (!querySnapshot.empty) {//if not empty
+        let query = groupsRef.where("groupID", "==", inputGroupID); //queries if there is a matching value. returns values
+        query.get() //gets the values of matching keys and gets value
+          .then((querySnapshot) => { //creates the snapshot 
+            if (!querySnapshot.empty) { //if not empty
               querySnapshot.forEach((data) => {
-                console.log(data.data());
-                let newParty = data.data().partyID;//looks at snapshot document and returns partyID property from the group doc
+                console.log(data.data().partyID);
+
                 db.collection("users").doc(user.uid).update({
                   groupID: inputGroupID, //changes user groupID to same as party
-                  partyID: newParty//looks at data.data() referenced group document and updates current user partyID to match 
                 })
-                alert("You have joined the " + inputGroupID.toUpperCase() + " -Party")
-                console.log(newParty);
-                window.location = "../main_Dummy.html";
+                alert("You have joined the " + inputGroupID + " - Party")
               })
+              window.location = "../main/";
             } else {
               alert("No matching Party ID");
             }
