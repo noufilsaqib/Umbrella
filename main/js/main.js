@@ -11,34 +11,8 @@ firebase.auth().onAuthStateChanged(user => {
                     .then((querySnapshot) => {
                         querySnapshot.forEach((doc) => {
 
-            //                 let CardTemplate = document.getElementById("CardTemplate");
-            // bookmarks.forEach(thisHikeID => {
-            //     console.log(thisHikeID);
-            //     db.collection("Hikes").where("id", "==", thisHikeID).get().then(querySnapshot => {
-            //         size = querySnapshot.size;
-            //         queryData = querySnapshot.docs;
-                    
-            //         if (size == 1) {
-            //             var doc = queryData[0].data();
-            //             var userName = doc.name; //gets the name field
-            //             var userLat = doc.userLat; //gets the unique ID field
-            //             var userLong = doc.length; //gets the length field
-            //             let newCard = CardTemplate.content.cloneNode(true);
-            //             newCard.querySelector('.card-title').innerHTML = hikeName;
-            //             newCard.querySelector('.card-length').innerHTML = hikeLength;
-            //             newCard.querySelector('a').onclick = () => setHikeData(hikeID);
-            //             newCard.querySelector('img').src = `./images/${hikeID}.jpg`;
-            //             hikeCardGroup.appendChild(newCard);
-            //         } else {
-            //             console.log("Query has more than one data")
-            //         }
-            //     })
-            // })
-
-
-
                             console.log(doc.id, " => ", doc.data());//prints doc console
-                            console.log("current user ID " + currentUserData.groupID)//prints
+                            console.log("current user ID " + currentUserData.groupID)
                         });
                     })
             }

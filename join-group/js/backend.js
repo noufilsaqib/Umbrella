@@ -21,10 +21,14 @@ function join() {
 
                 db.collection("users").doc(user.uid).update({
                   groupID: inputGroupID, //changes user groupID to same as party
+                }).then(function() {
+                  alert("You have joined the " + inputGroupID + " - Party")
+                  window.location = "../main/";
+
                 })
-                alert("You have joined the " + inputGroupID + " - Party")
+               
               })
-              window.location = "../main/";
+              
             } else {
               alert("No matching Party ID");
             }
