@@ -30,7 +30,7 @@ function populate() {
                             querySnapshot.forEach((doc) => {
                                 let cardTemplate = document.getElementById("card-template");
                                 let newCard = cardTemplate.content.cloneNode(true);
-                                
+
                                 //variables for database values
                                 number = doc.data().number;
                                 userCard = document.querySelector(".um-users")
@@ -38,14 +38,14 @@ function populate() {
                                 //Card user name 
                                 newCard.querySelector(".um-h3").innerHTML = userName + "<span class='user-host'>HOST</span>";
 
-                                
+
 
                                 //See if user is owner
 
                                 console.log(doc.data().owner)
-                                if (doc.data().owner == true){
+                                if (doc.data().owner == true) {
                                     newCard.querySelector(".user-host").style.opacity = "1";
-                                } 
+                                }
 
                                 //distance to host wherein %
 
@@ -57,9 +57,9 @@ function populate() {
 
                                 //gets and replace phone number
                                 newCard.querySelector("#userPhoneButton").href = "tel:" + number;
-                     
 
-                             
+
+
                                 // var userLat = doc.data().userLat; //gets the unique ID field
                                 // var userLong = doc.data().userLong; //gets the length field
 
@@ -79,3 +79,46 @@ function populate() {
     })
 }
 populate();
+
+function databaseScanSafe() {
+    let user_Name = "";
+
+    // Get list of unsafe users        
+    // to check if the user is logged in:
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            console.log(user.uid); // let me to know who is the user that logged in to get the UID
+            //console.log(user.isSafe);
+            userQuery = db.collection("users").doc(user.uid);
+
+            userQuery.get()
+                .then(userDoc => {
+                    groupQuery = db.collection("users").where("isSafe", "==", false); // will to to the firestore and go to the document of the user
+                    groupQuery.get()
+                        .then(groupSnapshot => {
+                            groupSnapshot.forEach(userDoc => {
+                                user_Name = userDoc.data().name;
+                                console.log(user_Name);
+                                $("#name-goes-here").text(user_Name); //jquery
+                            })
+                        })
+                })
+        }
+    })
+    /*
+    get multiple unsafe users into a list
+    if list.size()>0
+        display a list to the popup 
+        exclude current userName from the list
+    Change the popup design to get more attention
+
+    */
+
+    if (user_Name.length > 0 && (user.isSafe == true)) {
+        $('#SampleModal').modal('show');
+    }
+}
+
+var intervalId = setInterval(function () {
+    databaseScanSafe()
+}, 2000);
