@@ -93,10 +93,6 @@
     opacity: 0;
 }
 
-.user-container:first-child .user-host {
-    opacity: 1;
-}
-
 .progress {
     border-radius: 50rem;
     background-color: white;

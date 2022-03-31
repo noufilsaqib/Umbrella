@@ -54,7 +54,7 @@
         <div class="container">
             <div class="main-head">
                 <div class="main-info">
-                    <h1 class="um-title">Group Name</h1>
+                    <h1 class="um-title">...</h1>
                     <h5 class="um-h5">4 members</h5>
                 </div>
                 <div class="main-right">
@@ -64,7 +64,7 @@
             </div>
 
             <div class="um-users">
-                <div class="user-container">
+                <!-- <div class="user-container">
                     <div class="user-image">
                         <span class="material-icons">account_circle</span>
                     </div>
@@ -72,17 +72,17 @@
                         <h3 class="um-h3">...<span class="user-host">HOST</span></h3>
                         <div class="user-distance">
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35"
-                                    aria-valuemin="0" aria-valuemax="100">35m</div>
+                                <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="35"
+                                    aria-valuemin="0" aria-valuemax="100">..</div>
                             </div>
                         </div>
                     </div>
                     <div class="user-buttons">
                         <a href="tel:+4733378901"><span class="material-icons">phone_enabled</span></a>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="user-container">
+                <!-- <div class="user-container">
                     <div class="user-image">
                         <span class="material-icons">account_circle</span>
                     </div>
@@ -105,7 +105,7 @@
                         <span class="material-icons">account_circle</span>
                     </div>
                     <div class="user-content">
-                        <h3 class="um-h3">Noufil Saqib<span class="user-host">HOST</span></h3>
+                        <h3 class="um-h3">Noufil Saqib<span class="user-host" aria-hidden="true">HOST</span></h3>
                         <div class="user-distance">
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35"
@@ -126,7 +126,7 @@
                         <h3 class="um-h3">John Doe<span class="user-host">HOST</span></h3>
                         <div class="user-distance">
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35"
+                                <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="doc.data()disthost"
                                     aria-valuemin="0" aria-valuemax="100">35m</div>
                             </div>
                         </div>
@@ -135,67 +135,87 @@
                         <a href="tel:+4733378901"><span class="material-icons">phone_enabled</span></a>
                     </div>
                 </div>
+            </div> -->
+            </div>
+
+        </div>
+
+        <template id="card-template">
+            <div class="user-container">
+                <div class="user-image">
+                    <span class="material-icons">account_circle</span>
+                </div>
+                <div class="user-content">
+                    <h3 class="um-h3">...</h3>
+                    <div class="user-distance">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="35"
+                                aria-valuemin="0" aria-valuemax="100">..</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-buttons">
+                    <a id="userPhoneButton"><span class="material-icons">phone_enabled</span></a>
+                </div>
+            </div>
+        </template>
+
+        <!-- Modal -->
+        <div class="modal fade" id="umModal" tabindex="-1" aria-labelledby="umModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="text-center modal-body um-modal-body">
+                        <h3 class="um-h3" id="umModalLabel">Help Is Coming</h3>
+                        <p>Your friends have been notified. Please be patient.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn um-btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
 
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="umModal" tabindex="-1" aria-labelledby="umModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- ***Footer*** -->
+        <footer class="page-footer footer">
+            <div class="container pt-4 text-start um-footer-container">
+                <div class="row">
+                    <a href="/" class="mt-3 mb-2 footer-brand">
+                        <img class="logo-main" src="/assets/logo/um-logo-primary-white.png" height="35px"
+                            alt="Logo of Pixelbyte">
+                    </a>
                 </div>
-                <div class="text-center modal-body um-modal-body">
-                    <h3 class="um-h3" id="umModalLabel">Help Is Coming</h3>
-                    <p>Your friends have been notified. Please be patient.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn um-btn-primary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ***Footer*** -->
-    <footer class="page-footer footer">
-        <div class="container pt-4 text-start um-footer-container">
-            <div class="row">
-                <a href="/" class="mt-3 mb-2 footer-brand">
-                    <img class="logo-main" src="/assets/logo/um-logo-primary-white.png" height="35px"
-                        alt="Logo of Pixelbyte">
-                </a>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 footer-copyright py-3 um-footer-copyright">
-                    © 2022 Umbrella - Safety App
-                </div>
-                <div class="col-lg-6 py-2 um-footer-legal text-start text-lg-end">
-                    <ul class="list-unstyled list-inline">
-                        <li class="list-inline-item">
-                            <a class="um-link-animation">
-                                Terms and Conditions
-                            </a>
-                        </li>
-                        <li class="list-inline-item ps-5">
-                            <a class="um-link-animation">
-                                Privacy Policy
-                            </a>
-                        </li>
-                    </ul>
+                <div class="row">
+                    <div class="col-lg-6 footer-copyright py-3 um-footer-copyright">
+                        © 2022 Umbrella - Safety App
+                    </div>
+                    <div class="col-lg-6 py-2 um-footer-legal text-start text-lg-end">
+                        <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item">
+                                <a class="um-link-animation">
+                                    Terms and Conditions
+                                </a>
+                            </li>
+                            <li class="list-inline-item ps-5">
+                                <a class="um-link-animation">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer> <!-- Footer End -->
+        </footer> <!-- Footer End -->
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../js/firebaseAPI_umbrellaBBY15.js"></script>
-    <script src="./js/main.js"></script>
-    <script src="/js/skeleton.js"></script>
-    <script src="/js/global.js"></script>
-    <script src="js/script.js"></script>
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../js/firebaseAPI_umbrellaBBY15.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="/js/skeleton.js"></script>
+        <script src="/js/global.js"></script>
+        <script src="js/script.js"></script>
 
 </body>
 

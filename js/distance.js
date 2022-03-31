@@ -53,6 +53,7 @@ function insertLongAndLatMeet() {
             userQuery.get()
                 .then(userDoc => {
                     groupID = userDoc.data().groupID;
+
                     groupQuery = db.collection("groups").where("groupID", "==", groupID); // will to to the firestore and go to the document of the user
                     groupQuery.get()
                         .then(groupSnapshot => {

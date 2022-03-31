@@ -1,60 +1,81 @@
-function populate(){
-firebase.auth().onAuthStateChanged(user => {
-    var usersDBRef = db.collection("users");
-    currentUser = db.collection("users").doc(user.uid)//current user doc reference
-    currentUser.get().then(userDoc => {//fetches currUser group ID
-            currentUserData = userDoc.data();//use for reference current user document
+function populate() {
+    firebase.auth().onAuthStateChanged(user => {
+        let usersDBRef = db.collection("users");
+        let groupsDBRef = db.collection("groups");
+        let groupNameTag = document.querySelector(".um-title")
+        let hostDist; // be colored part of progress bar where (hostDist/Radius) x 100%
 
-            let query = usersDBRef.where("groupID", "==", currentUserData.groupID);//currUser ID as reference for query against users collection
-            if (user) {
-                query.get()
-                    .then((querySnapshot) => {
-                        querySnapshot.forEach((doc) => {
-                            document.querySelector(".um-h3").innerHTML = doc.data().name;
-                            if (doc.data().owner = true){
-                                document.querySelector(".user-host")
-                            }
-                            document.querySelector(".progress-bar").setAttribute()
+        currentUser = usersDBRef.doc(user.uid) //current user doc reference
+        currentUser.get().then(userDoc => { //fetches currUser group ID
+                currentUserData = userDoc.data(); //use for reference current user document
+                //references from group document by ID.
+                function updateG() {
+                    currentGroup = groupsDBRef.where("groupID", "==", currentUserData.groupID);
+                    currentGroup.get()
+                        .then((groupDoc) => {
+                            groupDoc.forEach((doc) => {
+                                //use doc.data*() to reference key value pair in DB
+                                document.querySelector(".um-title").innerText = doc.data().groupName;
+                                // hostDist =
+                            })
+                        })
+                }
+                updateG();
 
 
+                let queryUser = usersDBRef.where("groupID", "==", currentUserData.groupID); //currUser ID as reference for query against users collection
+                if (user) {
+                    queryUser.get()
+                        .then((querySnapshot) => {
+                            querySnapshot.forEach((doc) => {
+                                let cardTemplate = document.getElementById("card-template");
+                                let newCard = cardTemplate.content.cloneNode(true);
+                                
+                                //variables for database values
+                                number = doc.data().number;
+                                userCard = document.querySelector(".um-users")
+                                let userName = doc.data().name; //gets the name field
+                                //Card user name 
+                                newCard.querySelector(".um-h3").innerHTML = userName + "<span class='user-host'>HOST</span>";
+
+                                
+
+                                //See if user is owner
+
+                                console.log(doc.data().owner)
+                                if (doc.data().owner == true){
+                                    newCard.querySelector(".user-host").style.opacity = "1";
+                                } 
+
+                                //distance to host wherein %
 
 
+                                //Progress bar filler where width = (distHost / radius)from database
+                                newCard.querySelector(".progress-bar").style.width = "10%";
+                                newCard.querySelector(".progress-bar").innerText = "10" + "m";
+                                newCard.querySelector(".progress-bar").style.ariaValueNow = "10";
 
+                                //gets and replace phone number
+                                newCard.querySelector("#userPhoneButton").href = "tel:" + number;
+                     
 
+                             
+                                // var userLat = doc.data().userLat; //gets the unique ID field
+                                // var userLong = doc.data().userLong; //gets the length field
 
-            //  let CardTemplate = document.getElementById("CardTemplate");
-            // bookmarks.forEach(thisHikeID => {
-            //     console.log(thisHikeID);
-            //     db.collection("Hikes").where("id", "==", thisHikeID).get().then(querySnapshot => {
-            //         size = querySnapshot.size;
-            //         queryData = querySnapshot.docs;
-                    
-            //         if (size == 1) {
-            //             var doc = queryData[0].data();
-            //             var userName = doc.name; //gets the name field
-            //             var userLat = doc.userLat; //gets the unique ID field
-            //             var userLong = doc.length; //gets the length field
-            //             let newCard = CardTemplate.content.cloneNode(true);
-            //             newCard.querySelector('.card-title').innerHTML = hikeName;
-            //             newCard.querySelector('.card-length').innerHTML = hikeLength;
-            //             newCard.querySelector('a').onclick = () => setHikeData(hikeID);
-            //             newCard.querySelector('img').src = `./images/${hikeID}.jpg`;
-            //             hikeCardGroup.appendChild(newCard);
-            //         } else {
-            //             console.log("Query has more than one data")
-            //         }
-            //     })
-            // })
+                                // //CardTemplate Cloner
+                                userCard.appendChild(newCard);
 
-                            console.log(doc.id, " => ", doc.data());//prints doc console
-                            console.log("current user ID " + currentUserData.groupID)
-                        });
-                    })
-            }
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        })
-})
+                                //debug
+                                console.log(doc.data().name + " " + document.querySelector(".user-buttons").firstChild.href);
+                                console.log(doc.data().name, " => ", doc.data()); //prints doc console
+                            });
+                        })
+                }
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            })
+    })
 }
 populate();
