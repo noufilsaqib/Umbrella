@@ -87,7 +87,7 @@ function databaseScanSafe() {
     // to check if the user is logged in:
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            console.log(user.uid); // let me to know who is the user that logged in to get the UID
+            // console.log(user.uid); // let me to know who is the user that logged in to get the UID
             //console.log(user.isSafe);
             userQuery = db.collection("users").doc(user.uid);
 
@@ -98,7 +98,7 @@ function databaseScanSafe() {
                         .then(groupSnapshot => {
                             groupSnapshot.forEach(userDoc => {
                                 user_Name = userDoc.data().name;
-                                console.log(user_Name);
+                                // console.log(user_Name);
                                 $("#name-goes-here").text(user_Name); //jquery
                             })
                         })

@@ -110,8 +110,8 @@ function getDistanceToHost(position) {
     var hostLatitude = parseInt(meet_lat);
     var hostLongtitude = parseInt(meet_long);
 
-    console.log(hostLatitude, hostLongtitude);
-    console.log(position)
+    // console.log(hostLatitude, hostLongtitude);
+    // console.log(position)
     var dist = getDistanceInKm(position.coords.latitude, position.coords.longitude, hostLatitude, hostLongtitude);
     distance.innerHTML = "Distance to Host: " + dist.toPrecision(3) + " km";
     //upload to database
@@ -140,7 +140,7 @@ function uploadToDataBase() {
                     distHost: distanceToTheHost,
                 })
                 .then(() => {
-                    console.log("Document successfully updated!");
+                    // console.log("Document successfully updated!");
                     uploadToDataBaseStatus.innerHTML = "Successfully Upload To DataBase";
                 })
         }
