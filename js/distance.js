@@ -31,7 +31,7 @@ getLocation();
 
 //Update to the database each 10 seccond
 
-myInterval = setInterval(getLocation, 10000);
+// myInterval = setInterval(getLocation, 10000);
 
 function showPosition(position) {
 
@@ -46,8 +46,8 @@ function insertLongAndLatMeet() {
     // to check if the user is logged in:
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            console.log(user.uid); // let me to know who is the user that logged in to get the UID
-            console.log(user.groupID);
+            // console.log(user.uid); // let me to know who is the user that logged in to get the UID
+            // console.log(user.groupID);
             userQuery = db.collection("users").doc(user.uid);
 
             userQuery.get()
@@ -110,14 +110,14 @@ function getDistanceToHost(position) {
     var hostLatitude = parseInt(meet_lat);
     var hostLongtitude = parseInt(meet_long);
 
-    console.log(hostLatitude, hostLongtitude);
-    console.log(position)
+    // console.log(hostLatitude, hostLongtitude);
+    // console.log(position)
     var dist = getDistanceInKm(position.coords.latitude, position.coords.longitude, hostLatitude, hostLongtitude);
     distance.innerHTML = "Distance to Host: " + dist.toPrecision(3) + " km";
     //upload to database
     uploadToDataBase();
 }
-//getDistanceToHost();
+// getDistanceToHost();
 
 function error(err) {
     console.warn('ERROR(' + err.code + '): ' + err.message);
@@ -140,7 +140,7 @@ function uploadToDataBase() {
                     distHost: distanceToTheHost,
                 })
                 .then(() => {
-                    console.log("Document successfully updated!");
+                    // console.log("Document successfully updated!");
                     uploadToDataBaseStatus.innerHTML = "Successfully Upload To DataBase";
                 })
         }

@@ -10,6 +10,13 @@ const firebaseConfig = {
   messagingSenderId: "643699438575",
   appId: "1:643699438575:web:26f5b88174d6754d84fc1a",
   measurementId: "G-KG4P6PGBTS"
+
+  // apiKey: "AIzaSyC32YHd01Oxua_4NteQRPhPAtph9KjUxR8",
+  // authDomain: "ymbasda.firebaseapp.com",
+  // projectId: "ymbasda",
+  // storageBucket: "ymbasda.appspot.com",
+  // messagingSenderId: "1041736722918",
+  // appId: "1:1041736722918:web:c9ad05a06305add0410e27"
 };
 
 // Initialize Firebase

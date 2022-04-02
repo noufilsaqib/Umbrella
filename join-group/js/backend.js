@@ -17,18 +17,18 @@ function join() {
           .then((querySnapshot) => { //creates the snapshot 
             if (!querySnapshot.empty) { //if not empty
               querySnapshot.forEach((data) => {
-                console.log(data.data().groupName);
+                // console.log(data.data().groupName);
 
                 db.collection("users").doc(user.uid).update({
                   groupID: inputGroupID, //changes user groupID to same as party
-                }).then(function() {
+                }).then(function () {
                   alert("You have joined the " + data.data().groupName + " - Party")
                   window.location = "../main/";
 
                 })
-               
+
               })
-              
+
             } else {
               alert("No matching Party ID");
             }
