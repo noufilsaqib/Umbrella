@@ -80,45 +80,52 @@ function populate() {
 }
 populate();
 
-function databaseScanSafe() {
-    let user_Name = "";
 
-    // Get list of unsafe users        
-    // to check if the user is logged in:
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            // console.log(user.uid); // let me to know who is the user that logged in to get the UID
-            //console.log(user.isSafe);
-            userQuery = db.collection("users").doc(user.uid);
+// function databaseScanSafe() {
 
-            userQuery.get()
-                .then(userDoc => {
-                    groupQuery = db.collection("users").where("isSafe", "==", false); // will to to the firestore and go to the document of the user
-                    groupQuery.get()
-                        .then(groupSnapshot => {
-                            groupSnapshot.forEach(userDoc => {
-                                user_Name = userDoc.data().name;
-                                // console.log(user_Name);
-                                $("#name-goes-here").text(user_Name); //jquery
-                            })
-                        })
-                })
-        }
-    })
-    /*
-    get multiple unsafe users into a list
-    if list.size()>0
-        display a list to the popup 
-        exclude current userName from the list
-    Change the popup design to get more attention
 
-    */
+//     // Get list of unsafe users        
+//     // to check if the user is logged in:
+//     firebase.auth().onAuthStateChanged(user => {
+//         if (user) {
+//             // console.log(user.uid); // let me to know who is the user that logged in to get the UID
+//             //console.log(user.isSafe);
+//             userQuery = db.collection("users").doc(user.uid);
 
-    if (user_Name.length > 0 && (user.isSafe == true)) {
-        $('#SampleModal').modal('show');
-    }
-}
+//             userQuery.get()
+//                 .then(userDoc => {
+//                     groupQuery = db.collection("users").where("isSafe", "==", false); // will to to the firestore and go to the document of the user
+//                     groupQuery.get()
+//                         .then(groupSnapshot => {
+//                             groupSnapshot.forEach(userDoc => {
+//                                 user_Name = userDoc.data().name;
+//                                 console.log(user_Name);
+//                                 $("#name-goes-here").text(user_Name); //jquery
+//                             })
+//                         })
 
-var intervalId = setInterval(function () {
-    databaseScanSafe()
-}, 2000);
+//                     if ((user_Name.length > 0) && (userDoc.data().isSafe)) {
+//                         $('#SampleModal').modal('show');
+//                     } else {
+//                         // console.log(user_Name + " is unSafe.");
+//                     }
+//                 })
+
+//         }
+
+//     })
+//     /*
+//     get multiple unsafe users into a list
+//     if list.size()>0
+//         display a list to the popup 
+//         exclude current userName from the list
+//     Change the popup design to get more attention
+
+//     */
+
+
+// }
+
+// var intervalID = window.setInterval(function () {
+//     databaseScanSafe();
+// }, 1000);

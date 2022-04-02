@@ -31,7 +31,7 @@ getLocation();
 
 //Update to the database each 10 seccond
 
-myInterval = setInterval(getLocation, 10000);
+// myInterval = setInterval(getLocation, 10000);
 
 function showPosition(position) {
 
@@ -46,8 +46,8 @@ function insertLongAndLatMeet() {
     // to check if the user is logged in:
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
-            console.log(user.uid); // let me to know who is the user that logged in to get the UID
-            console.log(user.groupID);
+            // console.log(user.uid); // let me to know who is the user that logged in to get the UID
+            // console.log(user.groupID);
             userQuery = db.collection("users").doc(user.uid);
 
             userQuery.get()
@@ -117,7 +117,7 @@ function getDistanceToHost(position) {
     //upload to database
     uploadToDataBase();
 }
-//getDistanceToHost();
+// getDistanceToHost();
 
 function error(err) {
     console.warn('ERROR(' + err.code + '): ' + err.message);
