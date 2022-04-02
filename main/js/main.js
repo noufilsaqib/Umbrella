@@ -79,8 +79,7 @@ function populate() {
     })
 }
 populate();
-let user_Name = "";
-let isSafe = true;
+
 
 // function databaseScanSafe() {
 
