@@ -1,0 +1,115 @@
+.wrapper {
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+}
+
+.form-group {
+    display: none;
+}
+
+.main-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.um-title {
+    font-size: 4rem;
+}
+
+.um-btn-sos {
+    background-color: #ff0000;
+    color: white !important;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    cursor: pointer;
+    -webkit-box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0.1);
+    -webkit-transition: box-shadow 1s;
+    transition: box-shadow 1s;
+}
+
+.um-btn-sos:active {
+    -webkit-box-shadow: inset 300px 0 0 0 rgba(180, 0, 0, 1);
+    -moz-box-shadow: inset 300px 0 0 0 rgba(180, 0, 0, 1);
+    box-shadow: inset 300px 0 0 0 rgba(180, 0, 0, 1);
+    -webkit-transition: box-shadow 5s linear;
+    transition: box-shadow 5s linear;
+}
+
+.um-modal-body {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#umModal .um-h3 {
+    margin-bottom: 1rem;
+}
+
+#umModal .um-btn-primary {
+    width: 100%;
+}
+
+.modal-header, .modal-footer, .modal-content {
+    border: 0;
+}
+
+.um-users {
+    margin-top: 2rem;
+}
+
+.user-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 2rem;
+    background-color: rgba(68, 198, 176, 0.1);
+    border-radius: 500rem;
+    margin-bottom: 2rem;
+}
+
+.user-image {
+    display: flex;
+    align-items: center;
+}
+
+.user-image span {
+    font-size: 3rem;
+}
+
+.user-content {
+    flex-grow: 8
+}
+
+.user-content .um-h3 {
+    display: flex;
+    align-items: center;
+}
+
+.user-host {
+    background-color: #44c6b0;
+    color: white;
+    font-size: 0.75rem;
+    margin-left: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    opacity: 0;
+}
+
+.progress {
+    border-radius: 50rem;
+    background-color: white;
+}
+
+.progress-bar {
+    background-color: #44c6b0;
+}
+
+.user-buttons span {
+    background-color: #44c6b0;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}

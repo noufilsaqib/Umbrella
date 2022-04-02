@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Umbrella</title>
+
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/logo/um-logo-mini.png">
+
+    <!-- Bootstrap CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+    <!-- Google Icons (Material Design)-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <nav id="navTemplate"></nav>
+
+        <div class="container">
+            <div class="main-head">
+                <div class="main-info">
+                    <h1 class="um-title">...</h1>
+                    <h5 class="um-h5">4 members</h5>
+                </div>
+                <div class="main-right">
+                    <a class="btn btn-lg um-btn-sos" id="isSafe" href="#" role="button">SOS</a>
+                </div>
+                <!-- <a class="btn btn-lg um-btn-sos" id="userBackToSafe" href="#" onclick="backTosafe()">Safe
+                    Now</a> -->
+            </div>
+
+            <div class="um-users">
+                <!-- <div class="user-container">
+                    <div class="user-image">
+                        <span class="material-icons">account_circle</span>
+                    </div>
+                    <div class="user-content">
+                        <h3 class="um-h3">...<span class="user-host">HOST</span></h3>
+                        <div class="user-distance">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="35"
+                                    aria-valuemin="0" aria-valuemax="100">..</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-buttons">
+                        <a href="tel:+4733378901"><span class="material-icons">phone_enabled</span></a>
+                    </div>
+                </div> -->
+
+                <!-- <div class="user-container">
+                    <div class="user-image">
+                        <span class="material-icons">account_circle</span>
+                    </div>
+                    <div class="user-content">
+                        <h3 class="um-h3">Anh Nguyen<span class="user-host">HOST</span></h3>
+                        <div class="user-distance">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35"
+                                    aria-valuemin="0" aria-valuemax="100">35m</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-buttons">
+                        <a href="tel:+4733378901"><span class="material-icons">phone_enabled</span></a>
+                    </div>
+                </div>
+
+                <div class="user-container">
+                    <div class="user-image">
+                        <span class="material-icons">account_circle</span>
+                    </div>
+                    <div class="user-content">
+                        <h3 class="um-h3">Noufil Saqib<span class="user-host" aria-hidden="true">HOST</span></h3>
+                        <div class="user-distance">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35"
+                                    aria-valuemin="0" aria-valuemax="100">35m</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-buttons">
+                        <a href="tel:+4733378901"><span class="material-icons">phone_enabled</span></a>
+                    </div>
+                </div>
+
+                <div class="user-container">
+                    <div class="user-image">
+                        <span class="material-icons">account_circle</span>
+                    </div>
+                    <div class="user-content">
+                        <h3 class="um-h3">John Doe<span class="user-host">HOST</span></h3>
+                        <div class="user-distance">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="doc.data()disthost"
+                                    aria-valuemin="0" aria-valuemax="100">35m</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-buttons">
+                        <a href="tel:+4733378901"><span class="material-icons">phone_enabled</span></a>
+                    </div>
+                </div>
+            </div> -->
+            </div>
+
+        </div>
+        <div>
+            <p type="text" id="userLong" placeholder="Your longitude"> </p>
+        </div>
+        <div class="form-group">
+            <p type="text" id="userLat" placeholder="Your latitude"> </p>
+            <p id="distance"></p>
+            <p type="text" onclick="getLocation()"></p>
+            <p type="text" onclick="uploadToDataBase()"></p>
+            <p type="text" onclick="getDistanceToHost(position)"></p>
+            <p id="uploadToDataBaseStatus"></p>
+        </div>
+
+        <template id="card-template">
+            <div class="user-container">
+                <div class="user-image">
+                    <span class="material-icons">account_circle</span>
+                </div>
+                <div class="user-content">
+                    <h3 class="um-h3">...</h3>
+                    <div class="user-distance">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="35"
+                                aria-valuemin="0" aria-valuemax="100">..</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-buttons">
+                    <a id="userPhoneButton"><span class="material-icons">phone_enabled</span></a>
+                </div>
+            </div>
+        </template>
+
+        <!-- Modal -->
+        <div class="modal fade" id="umModal" tabindex="-1" aria-labelledby="umModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="text-center modal-body um-modal-body">
+                        <h3 class="um-h3" id="umModalLabel">Help Is Coming</h3>
+                        <p>Your friends have been notified. Please be patient.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn um-btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Other Users -->
+        <div class="modal fade" id="SampleModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h4 class="modal-title" id="myModalLabel">Message</h4>
+                    </div>
+                    <div class="text-center modal-body um-modal-body">
+                        <span id="name-goes-here"></span> needs HELP!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn um-btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn um-btn-secondary" data-bs-dismiss="modal">Call</button>
+                        <button type="button" class="btn um-btn-secondary" data-bs-dismiss="modal"
+                            onclick="markAllSafe()">Mark Safe</button>
+                        <!-- <button type="button" class="btn um-btn-secondary" data-bs-dismiss="modal" onclick="reset">Got
+                            it</button> -->
+
+                        <!-- <button type="button" class="btn um-btn-primary">Call Now</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ***Footer*** -->
+        <footer class="page-footer footer">
+            <div class="container pt-4 text-start um-footer-container">
+                <div class="row">
+                    <a href="/" class="mt-3 mb-2 footer-brand">
+                        <img class="logo-main" src="/assets/logo/um-logo-primary-white.png" height="35px"
+                            alt="Logo of Pixelbyte">
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 footer-copyright py-3 um-footer-copyright">
+                        © 2022 Umbrella - Safety App
+                    </div>
+                    <div class="col-lg-6 py-2 um-footer-legal text-start text-lg-end">
+                        <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item">
+                                <a class="um-link-animation">
+                                    Terms and Conditions
+                                </a>
+                            </li>
+                            <li class="list-inline-item ps-5">
+                                <a class="um-link-animation">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer> <!-- Footer End -->
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../js/firebaseAPI_umbrellaBBY15.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="/js/skeleton.js"></script>
+        <script src="/js/global.js"></script>
+        <script src="js/script.js"></script>
+        <meta name="viewport" content="width=device-width" />
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
+        <script src="/js/distance.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map with Mapbox</title>
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+    <style>
+        #map {
+            width: 100%;
+            height: 580px;
+            border-radius: 10px;
+        }
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 50vw;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="text-h1">Umbrella</h1>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="body">
+        <div class="container">
+            <div id="map"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; Copyright Reversed by Umbrella
+    </footer>
+
+    </script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+
+    <script>
+        mapboxgl.accessToken =
+            'pk.eyJ1Ijoibmd1eWVubmdvY2FuaDI2OSIsImEiOiJjbDE1d3EzNDkwMDFlM2NvM251bmxtOWtoIn0.o3tsm8VN0gzv6-rJg9hfcQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-123.116226, 49.246292], // Longitude, Latitude
+            zoom: 9
+        });
+    </script>
+</body>
+
+</html>

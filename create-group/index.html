@@ -18,6 +18,8 @@
     <!-- Google Icons (Material Design)-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+
+
     <!-------------------------------------------------------->
     <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
     <!-------------------------------------------------------->
@@ -29,40 +31,46 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
     <div class="wrapper">
-
         <nav id="navTemplate"></nav>
-        <!-- ***Jumbotron*** -->
-        <div class="um-landing-section">
-            <div class="jumbotron d-flex align-items-center">
-                <div class="container">
-                    <h5 class="um-subtitle">WELCOME TO</h5>
-                    <h1 class="display-5 um-title">Umbrella</h1>
-                    <p class="um-btns">
-                        <a class="btn btn-lg um-btn-primary" href="/create-group/" role="button">Create a Group</a>
-                        <a class="btn btn-lg um-btn-secondary" href="/join-group/" role="button">Join a Group</a>
-                    </p>
-                    <a class="btn um-btn-text" href="#" role="button">How it works</a>
-                </div>
-            </div>
-            <div>
-                <p type="text" id="userLong" placeholder="Your longitude"> </p>
-            </div>
-            <div class="form-group">
-                <p type="text" id="userLat" placeholder="Your latitude"> </p>
-                <p id="distance"></p>
-                <p type="text" onclick="getLocation()"></p>
-                <p type="text" onclick="uploadToDataBase()"></p>
-                <p type="text" onclick="getDistanceToHost(position)"></p>
-                <p id="uploadToDataBaseStatus"></p>
-            </div>
-        </div> <!-- Jumbotron End -->
+
+        <div class="um-create-section">
+            <div id="um-steps"></div>
+
+            <h2 class="um-h2 text-center"><span>Create Group</span></h2>
+
+            <section>
+                <p>Enter your group name <span>(required)</span></p>
+                <input type="text" placeholder="My Group ..." id="groupName" />
+            </section>
+
+            <section>
+                <p>Set your group radius <span>(required)</span></p>
+                <input type="number" placeholder="500 (in meters)" id="radius" />
+            </section>
+
+            <section>
+                <p>Enter destination address <span>(required)</span></p>
+                <input type="number" placeholder="Latitude" id="meetLat" />
+                <input type="number" placeholder="Longitude" id="meetLong" />
+            </section>
+
+            <section>
+                <p>Invite others to the group</p>
+                <input class="text-center" type="text" readonly id="shareCode"/>
+            </section>
+
+            <a class="btn btn-lg um-btn-secondary" id="prev" href="#" role="button">&larr; Back</a>
+            <a class="btn btn-lg um-btn-primary" id="next" href="#" role="button" onclick="setter()">Next &rarr;</a>
+            <a class="btn btn-lg um-btn-primary" id="submit" href="#" role="button" onclick="submit()">Create My Group</a>
+
+        </div>
 
     </div>
 
@@ -71,7 +79,7 @@
         <div class="container pt-4 text-start um-footer-container">
             <div class="row">
                 <a href="/" class="mt-3 mb-2 footer-brand">
-                    <img class="logo-main" src="assets/logo/um-logo-primary-white.png" height="35px"
+                    <img class="logo-main" src="/assets/logo/um-logo-primary-white.png" height="35px"
                         alt="Logo of Pixelbyte">
                 </a>
             </div>
@@ -99,13 +107,12 @@
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./js/firebaseAPI_umbrellaBBY15.js"></script>
+    <script src="/js/firebaseAPI_umbrellaBBY15.js"></script>
     <script src="/js/index.js"></script>
+    <script src="js/backend.js"></script> <!-- link up with database js xp -->
     <script src="/js/skeleton.js"></script>
     <script src="/js/global.js"></script>
     <script src="./js/script.js"></script>
-    <script src="./js/distance.js"></script>
-
 
 </body>
 

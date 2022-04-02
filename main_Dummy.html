@@ -37,30 +37,31 @@
 
     <div class="wrapper">
 
-        <nav id="navTemplate"></nav>
         <!-- ***Jumbotron*** -->
         <div class="um-landing-section">
-            <div class="jumbotron d-flex align-items-center">
+            <div class="jumbotron d-flex flex-column align-items-center">
+                <!-- DOM insert partyID here read db currentUser -->
+                <h4 id="myParty">...</h4>
+                <!-- DOM insert members here read db from main.js -->
+                <!-- card template -->
+                <template id="userCardTemplate">
+                    <div class="card">
+                        <img class="card-img-left">
+                        <div class="card-body">
+                            <p class="card-text">places members here</p>
+                            <p class="card-num">places distance to center</p>
+                        </div>
+                    </div>
+                </template>
+
                 <div class="container">
-                    <h5 class="um-subtitle">WELCOME TO</h5>
-                    <h1 class="display-5 um-title">Umbrella</h1>
-                    <p class="um-btns">
-                        <a class="btn btn-lg um-btn-primary" href="/create-group/" role="button">Create a Group</a>
-                        <a class="btn btn-lg um-btn-secondary" href="/join-group/" role="button">Join a Group</a>
-                    </p>
-                    <a class="btn um-btn-text" href="#" role="button">How it works</a>
+                    <h1>Members</h1>
+                    <!-- Here is container for cards  -->
+                    <div class="container">
+                        <div id="userCardGroup" class="row row-cols-auto">
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <p type="text" id="userLong" placeholder="Your longitude"> </p>
-            </div>
-            <div class="form-group">
-                <p type="text" id="userLat" placeholder="Your latitude"> </p>
-                <p id="distance"></p>
-                <p type="text" onclick="getLocation()"></p>
-                <p type="text" onclick="uploadToDataBase()"></p>
-                <p type="text" onclick="getDistanceToHost(position)"></p>
-                <p id="uploadToDataBaseStatus"></p>
             </div>
         </div> <!-- Jumbotron End -->
 
@@ -104,6 +105,7 @@
     <script src="/js/skeleton.js"></script>
     <script src="/js/global.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/main.js"></script>
     <script src="./js/distance.js"></script>
 
 
