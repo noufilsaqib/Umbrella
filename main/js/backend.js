@@ -1,8 +1,10 @@
+var meetingMax;
+
 function groupPopulate() {
     firebase.auth().onAuthStateChanged(user => {
         let usersCol = db.collection("users");
         let groupsCol = db.collection("groups");
-        let hostDist;
+        
 
         usersCol.doc(user.uid)
         .get()
@@ -13,16 +15,16 @@ function groupPopulate() {
             .then((groupDoc) => {
                 groupDoc.forEach((doc) => {
                     document.querySelector(".um-title").innerText = doc.data().groupName;
+                    meetingMax = doc.data().radius;
                 })
             })
-
-            let queryUser = usersCol.where("groupID", "==", userDoc.data().groupID);
 
             let totalMembers = document.getElementById("totalMembers");
             let size;
 
             if (user) {
-                queryUser.get()
+                usersCol.where("groupID", "==", userDoc.data().groupID)
+                .get()
                 .then((querySnapshot) => {
                     size = querySnapshot.size;
                     totalMembers.innerHTML = size + " members";
@@ -40,9 +42,16 @@ function groupPopulate() {
                             newCard.querySelector(".user-host").style.opacity = "1";
                         }
 
-                        newCard.querySelector(".progress-bar").style.width = "10%";
-                        newCard.querySelector(".progress-bar").innerText = "10" + "m";
-                        newCard.querySelector(".progress-bar").style.ariaValueNow = "10";
+                          //bar turns red if distMeet > radius
+                          if (doc.data().distMeet > meetingMax) {
+                              console.log("Meetingmax:" + meetingMax)
+                              console.log("distMeet:" + doc.data().distMeet)
+                            newCard.querySelector(".progress-bar").style.backgroundColor = "red";
+                        }
+
+                        newCard.querySelector(".progress-bar").style.width = "100%";
+                        newCard.querySelector(".progress-bar").innerText = (Math.round(doc.data().distMeet)) + " km";
+                        newCard.querySelector(".progress-bar").style.ariaValueNow = 100;
 
                         newCard.querySelector("#userPhoneButton").href = "tel:" + phoneNo;
 
@@ -87,23 +96,20 @@ function checkDBForUnsafeUser() {
                     groupSnapshot.forEach(userDoc => {
                         userName = userDoc.data().name;
                         $("#notSafeUser").text(userName);
+                        document.getElementById("modalCallBtn").href = "tel:" + userDoc.data().phone;
                     })
 
                     if ((userName.length > 0) && (userDoc.data().isSafe)) {
                         $('#umOtherModal').modal('show');
-                        console.log(userName + " is unsafe.");
-                        userName = "";
+                        // console.log(userName + " is unsafe.");
+                        // userName = "";
                     } else {
                         $('#umOtherModal').modal('hide');
                     }
                 })
-
             })
-
         }
-
     })
-
 }
 
 var intervalID = window.setInterval(function () {
