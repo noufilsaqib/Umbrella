@@ -1,0 +1,52 @@
+.um-login-section {
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.um-login-section .um-login-ui {
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.um-login-section .um-login-left {
+    height: 100%;
+    background-color: rgba(68, 198, 176, 0.1);
+}
+
+.um-login-section .um-login-left img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.um-h2 {
+    margin-bottom: 2rem;
+}
+
+.um-input {
+    display: block;
+    width: 100%;
+}
+
+.um-button-custom {
+    margin: 3rem 0;
+    width: 100%;
+}
+
+.um-btn-text, .um-btn-text:hover {
+    color: #44c6b0;
+    font-weight: 500;
+}
+
+label[for=userSIPassword] {
+    margin-top: 2rem;
+}
+
+@media (min-width: 992px) {
+    .p-lg-5 {
+        padding: 3rem 6rem!important;
+    }
+}

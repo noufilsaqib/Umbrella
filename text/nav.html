@@ -1,23 +1,37 @@
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="./images/logo.png" height="36">
-                Umbrella</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+<!-- ***Navbar*** -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+    <div class="container container-custom">
+        <a href="/home/" class="navbar-brand">
+            <img class="logo-main" src="/assets/logo/um-logo-primary.png" height="40px" alt="Logo of Umbrella">
+        </a>
+
+        <button class="navbar-toggler um-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="um-navbar-icon-animated">
+                <span></span> 
+                <span></span>
             </div>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a href="/main/" class="nav-link nav-link-custom um-link-animation">My Group</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/account/" class="nav-link nav-link-custom um-link-animation">Account</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about/" class="nav-link nav-link-custom um-link-animation">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link nav-link-custom um-link-animation">Contact</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link btn um-btn-primary" style="margin-left: 2rem;" onclick="signOut()">Sign Out</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav> <!-- Navbar End -->

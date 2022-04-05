@@ -33,32 +33,44 @@
 
     <div class="wrapper">
 
-        <div class="um-login-section">
+        <div class="um-sign-section">
             <div class="container-fluid">
-                <div class="row um-login-ui">
-                    <div class="col-lg-5 col-md-5 um-login-left">
-                        <img src="/assets/login-hero.svg" alt="Illustration for login page">
+                <div class="row um-sign-ui">
+                    <div class="col-lg-5 col-md-5 um-sign-left">
+                        <img src="/assets/sign-up-hero.svg" alt="Illustration for Sign Up page">
                     </div>
 
-                    <div class="col-lg-7 col-md-7 p-lg-5 p-md-5 px-3 py-4 um-login-right">
-                        <div id="signInForm">
-                            <h2 class="text-center um-h2"><span>Login</span></h2>
+                    <div class="col-lg-7 col-md-7 p-lg-5 p-md-5 px-3 py-4 um-sign-right">
+                        <div id="signUpForm">
+                            <h2 class="text-center um-h2"><span>Create Your Account</span></h2>
+
+                            <div class="form-group">
+                                <label for="userFullName">Name</label>
+                                <input type="text" class="um-input" id="userFullName" onblur="checkUserFullName()" placeholder="Enter your full name" required>
+                                <small id="userFullNameError" class="form-text">*This field must be filled.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userPhone">Phone</label>
+                                <input type="tel" class="um-input" id="userPhone" onblur="checkUserPhone()" placeholder="(123) 456-7890" required>
+                                <small id="userPhoneError" class="form-text">*Please check your phone number.</small>
+                            </div>
 
                             <div class="form-group">
                                 <label for="userEmail">Email</label>
-                                <input type="email" class="um-input" id="userEmail" onblur="checkUserEmail()" placeholder="Enter your email">
+                                <input type="email" class="um-input" id="userEmail" onblur="checkUserEmail()" placeholder="Enter your email" required>
                                 <small id="userEmailError" class="form-text">*Please check your email.</small>
                             </div>
 
                             <div class="form-group">
                                 <label for="userPassword">Password</label>
-                                <input type="password" class="um-input" id="userPassword" onblur="checkUserPassword()" placeholder="Enter your password">
+                                <input type="password" class="um-input" id="userPassword" onblur="checkUserPassword()" placeholder="Enter your password" required>
                                 <small id="userPasswordError" class="form-text">*Please check your password.</small>
                             </div>
 
-                            <button type="button" class="btn btn-lg mb-3 um-btn-primary um-button-custom" onclick="signIn()">Login</button>
+                            <button type="button" class="btn btn-lg mb-3 um-btn-primary um-button-custom" onclick="signUp()">Sign Up</button>
                             
-                            <p class="text-center">Don't have an account yet? <a href="/sign-up/" class="btn um-btn-text">Join Umbrella Now</a></p>
+                            <p class="text-center">Already have an account yet? <a href="/" class="btn um-btn-text">Login Now</a></p>
                         </div>
                     </div>
                 </div>
@@ -73,7 +85,7 @@
     <!-- Firebase -->
     <script src="/js/firebaseAPI_umbrellaBBY15.js"></script>
     <script src="/js/authentication.js"></script>
-    
+
     <script src="/js/skeleton.js"></script>
     <script src="/js/global.js"></script>
     <script src="js/script.js"></script>

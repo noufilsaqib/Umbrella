@@ -1,0 +1,48 @@
+/* Create Section */
+.um-create-section {
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    text-align: center;
+}
+
+.um-create-section .um-h2 {
+    margin-top: 2rem;
+}
+
+#um-steps-indicator {
+    height: 1rem;
+    max-width: 80%;
+    margin: 2rem auto;
+    display: block;
+}
+
+.disabled {
+    display:none;
+}
+
+section {
+    padding: 2rem;
+    max-width: fit-content;
+    margin: 2rem auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+input {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+}
+  
+p {
+    font-weight: 500;
+}
+/* *** */
+
+/* Responsive */
+@media screen and (max-width: 434px) {
+    .um-create-section {
+       min-height: 100vh;
+    }
+}

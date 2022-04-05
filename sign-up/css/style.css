@@ -1,0 +1,50 @@
+.um-sign-section {
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.um-sign-section .um-sign-ui {
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.um-sign-section .um-sign-left {
+    height: 100%;
+    background-color: rgba(68, 198, 176, 0.1);
+}
+
+.um-sign-section .um-sign-left img {
+    height: 100%;
+    width: 90%;
+    display: block;
+    margin: auto;
+}
+
+.um-input {
+    display: block;
+    width: 100%;
+}
+
+.um-button-custom {
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.um-btn-text, .um-btn-text:hover {
+    color: #44c6b0;
+    font-weight: 500;
+}
+
+.form-group label {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+@media (min-width: 992px) {
+    .p-lg-5 {
+        padding: 1rem 6rem 1rem!important;
+    }
+}
