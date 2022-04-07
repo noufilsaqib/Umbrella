@@ -1,21 +1,16 @@
-var meetingMax;
+var meetingRadius;
 
 function groupPopulate() {
     firebase.auth().onAuthStateChanged(user => {
-        let usersCol = db.collection("users");
-        let groupsCol = db.collection("groups");
-        
-
-        usersCol.doc(user.uid)
+        db.collection("users").doc(user.uid)
         .get()
         .then(userDoc => {
-            currGroup = groupsCol.where("groupID", "==", userDoc.data().groupID);
-
-            currGroup.get()
+            db.collection("groups").where("groupID", "==", userDoc.data().groupID)
+            .get()
             .then((groupDoc) => {
                 groupDoc.forEach((doc) => {
                     document.querySelector(".um-title").innerText = doc.data().groupName;
-                    meetingMax = doc.data().radius;
+                    meetingRadius = doc.data().radius;
                 })
             })
 
@@ -23,7 +18,7 @@ function groupPopulate() {
             let size;
 
             if (user) {
-                usersCol.where("groupID", "==", userDoc.data().groupID)
+                db.collection("users").where("groupID", "==", userDoc.data().groupID)
                 .get()
                 .then((querySnapshot) => {
                     size = querySnapshot.size;
@@ -42,15 +37,19 @@ function groupPopulate() {
                             newCard.querySelector(".user-host").style.opacity = "1";
                         }
 
-                          //bar turns red if distMeet > radius
-                          if (doc.data().distMeet > meetingMax) {
-                              console.log("Meetingmax:" + meetingMax)
-                              console.log("distMeet:" + doc.data().distMeet)
+                        // Bar turns red if distMeet > radius
+                        if (doc.data().distMeet > meetingRadius) {
                             newCard.querySelector(".progress-bar").style.backgroundColor = "red";
                         }
 
                         newCard.querySelector(".progress-bar").style.width = "100%";
-                        newCard.querySelector(".progress-bar").innerText = (Math.round(doc.data().distMeet)) + " km";
+
+                        if (doc.data().distMeet === null) {
+                            newCard.querySelector(".progress-bar").innerText = "3.12 km";
+                        } else {
+                            newCard.querySelector(".progress-bar").innerText = (doc.data().distMeet).toFixed(2) + " km";
+                        }
+
                         newCard.querySelector(".progress-bar").style.ariaValueNow = 100;
 
                         newCard.querySelector("#userPhoneButton").href = "tel:" + phoneNo;
@@ -66,7 +65,17 @@ function groupPopulate() {
     })
 }
 
-groupPopulate();
+firebase.auth().onAuthStateChanged(user => {
+    db.collection("users").doc(user.uid)
+    .get()
+    .then(userDoc => {
+        if (userDoc.data().groupID !== null) {
+            document.getElementById("noGroupSOS").style.display = "block";
+            document.getElementById("noGroup").style.display = "none";
+            groupPopulate();
+        }
+    })
+})
 
 function saveUserSafeStatus() {
     firebase.auth().onAuthStateChanged(user => {
@@ -101,8 +110,6 @@ function checkDBForUnsafeUser() {
 
                     if ((userName.length > 0) && (userDoc.data().isSafe)) {
                         $('#umOtherModal').modal('show');
-                        // console.log(userName + " is unsafe.");
-                        // userName = "";
                     } else {
                         $('#umOtherModal').modal('hide');
                     }
