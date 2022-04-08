@@ -23,6 +23,8 @@ function getLocation() {
     }
 }
 
+getLocation();
+
 function showPosition(position) {
     userLong.value = position.coords.longitude;
     userLat.value = position.coords.latitude;
